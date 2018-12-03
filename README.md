@@ -26,11 +26,11 @@ deploy the item catalog project that we previously made in this project using ap
   sudo apt-get upgrade
 
 ## 4. Change SSH port from 22 to 2200
-#  A- First off, from the google right Drawer under networking hover over VPC network then choose Firewall Rules
+###  A- First off, from the google right Drawer under networking hover over VPC network then choose Firewall Rules
   Click CREATE FIREWALL RULE name it **default-allow-ssh** then check **Specified protocols and ports** and add 2200 to the tcp field
   then Click Create
 
-#  B- Back to our server type this:
+###  B- Back to our server type this:
   sudo nano /etc/ssh/sshd_config
   then change the port from 22 to 2200 and save
   restart ssh, sudo service ssh restart
@@ -38,9 +38,9 @@ deploy the item catalog project that we previously made in this project using ap
   and type in the port in our case 2200, there is also an option where you can go to the gcloud shell (also from the drop down) and add to -gcloud compute --project "linux-configuration-system" ssh --zone "us-east1-b" "instance-1"- this command '--ssh-flag="-p 2200"
 
 ## 5. Configure Uncomplicated Firewall to allow incoming and outgoing connections
-#  A- Just as mentioned in step 4(a) add each firewall rule you want to the the firewall rules of your engine, in our case we already setup        ssh. now let us add http and ntp, again name them default-allow-http and default-allow-ntp and fill in their tcp with their number (http 80,    ntp 123)
+###  A- Just as mentioned in step 4(a) add each firewall rule you want to the the firewall rules of your engine, in our case we already setup        ssh. now let us add http and ntp, again name them default-allow-http and default-allow-ntp and fill in their tcp with their number (http 80,    ntp 123)
 
-#  B- Back to our terminal, execute the following commands to block any incoming requests and allow outgoing requests
+###  B- Back to our terminal, execute the following commands to block any incoming requests and allow outgoing requests
   sudo ufw default deny incoming
   sudo ufw default allow outgoing
   **now add the firewall rules**
